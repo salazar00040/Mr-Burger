@@ -15,6 +15,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -39,22 +41,23 @@ public class ProfileActivity extends AppCompatActivity {
         editTextNewPassword = findViewById(R.id.editTextNewPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonSave = findViewById(R.id.buttonSave);
-        buttonChangePassword = findViewById(R.id.buttonChangePassword);
+//        buttonChangePassword = findViewById(R.id.buttonChangePassword);
         buttonBack = findViewById(R.id.buttonBack);
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveChanges();
-            }
-        });
-
-        buttonChangePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 changePassword();
             }
         });
+
+//        buttonChangePassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                changePassword();
+//            }
+//        });
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,10 +69,36 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void saveChanges() {
         String newName = editTextName.getText().toString().trim();
-        // Add code here to save the new name to Firestore or any other database
-        // For demonstration purposes, we'll just display a Toast message
-        Toast.makeText(ProfileActivity.this, "Name saved: " + newName, Toast.LENGTH_SHORT).show();
+
+        if (TextUtils.isEmpty(newName)) {
+            Toast.makeText(this, "Please enter a new name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            // Get the document reference for the current user
+            DocumentReference userRef = FirebaseFirestore.getInstance()
+                    .collection("users")
+                    .document(user.getUid());
+
+            // Update the name field
+            userRef.update("name", newName)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(ProfileActivity.this, "Name updated successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProfileActivity.this, "Failed to update name: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
+
 
     private void changePassword() {
         String oldPassword = editTextOldPassword.getText().toString().trim();

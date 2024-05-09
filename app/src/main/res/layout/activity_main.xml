@@ -2,45 +2,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MainActivity">
 
-    <!-- TextView to display the client's name -->
+
+    <!-- ImageView for the profile icon -->
+
+    <!-- Hamburger menu icon -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:alpha="0.1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="-12dp"
+        android:layout_marginBottom="430dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/img1" />
+
     <TextView
         android:id="@+id/textViewClientName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Welcome, Client Name"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <!-- ImageView for the profile icon -->
     <ImageView
         android:id="@+id/imageViewProfileIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/profile"
+        android:layout_width="41dp"
+        android:layout_height="27dp"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
         android:clickable="true"
-        android:onClick="openProfilePage" />
+        android:onClick="openProfilePage"
+        android:src="@drawable/profile" />
 
-    <!-- RecyclerView for the menu items -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewClientName"
-        android:layout_marginTop="16dp" />
-
-    <!-- Hamburger menu icon -->
     <ImageView
         android:id="@+id/hamburgerMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="32dp" />
+
+    <!-- RecyclerView for the menu items -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageBanner"
+        android:layout_marginTop="-229dp"
+        android:layout_marginBottom="16dp" />
 
 </RelativeLayout>
