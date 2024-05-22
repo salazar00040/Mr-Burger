@@ -67,7 +67,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                 if (user != null) {
                                     saveUserData(user.getUid(), name, email);
                                 }
-                                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                                Intent intent = new Intent(RegistrationActivity.this, MainPageActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {
@@ -91,7 +91,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             // User data saved successfully, navigate to main activity
-                            Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                            Intent intent = new Intent(RegistrationActivity.this, MainPageActivity.class);
                             try {
                                 startActivity(intent);
                                 finish();

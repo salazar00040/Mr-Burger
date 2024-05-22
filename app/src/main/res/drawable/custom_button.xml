@@ -1,0 +1,17 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#D12525" /> <!-- Change to desired color -->
+            <corners android:radius="8dp" /> <!-- Change to desired corner radius -->
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" /> <!-- Change to desired color -->
+            <stroke
+                android:width="2dp"
+                android:color="#D12525" /> <!-- Change to desired border color -->
+            <corners android:radius="8dp" /> <!-- Change to desired corner radius -->
+        </shape>
+    </item>
+</selector>

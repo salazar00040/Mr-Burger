@@ -150,7 +150,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void navigateBackToMainMenu() {
-        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+        Intent intent = new Intent(ProfileActivity.this, MainPageActivity.class);
         startActivity(intent);
         finish(); // Close the current activity to prevent navigating back to it
     }

@@ -1,26 +1,140 @@
-<!-- activity_item_description.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/itemNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Item Name" />
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        android:alpha="0.1" />
 
-    <TextView
-        android:id="@+id/itemPriceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Item Price" />
+    <!-- Scrollable Container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!-- Button to return to main menu -->
-    <Button
-        android:id="@+id/buttonReturn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Return to Main Menu" />
+        <!-- Main Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#ffffff"
+            android:alpha="0.95">
 
-</LinearLayout>
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/buttonBackToMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Back to Main Menu"
+                    android:textSize="14sp"
+                    android:background="@drawable/button_background"
+                    android:textColor="@android:color/white"
+                    />
+            </LinearLayout>
+
+            <!-- Product Image -->
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:src="@drawable/burger1"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center" />
+
+            <!-- Product Title -->
+            <TextView
+                android:id="@+id/itemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lamb Burger"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <!-- Product Price -->
+            <TextView
+                android:id="@+id/itemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Starting from 15.25 $"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#D12525"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <!-- Product Description -->
+            <TextView
+                android:id="@+id/itemDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Patty of ground lamb, Two halves of a bun, Slices of raw onion, lettuce, Mayonnaise, bacon, Salad, and other ingredients and flavor can be added on request."
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp" />
+
+            <!-- Quantity Selector -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/increaseQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="24sp"
+                    android:backgroundTint="#D12525"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/textQuantity"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:layout_marginHorizontal="8dp" />
+
+                <Button
+                    android:id="@+id/decreaseQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="24sp"
+                    android:backgroundTint="#D12525"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:textSize="20sp"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:padding="10dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
