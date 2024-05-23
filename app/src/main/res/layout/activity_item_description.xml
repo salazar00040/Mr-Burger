@@ -75,6 +75,18 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp" />
 
+            <!-- Total Price -->
+            <TextView
+                android:id="@+id/totalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total: 15.25 $"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#D12525"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
             <!-- Product Description -->
             <TextView
                 android:id="@+id/itemDescription"
@@ -95,7 +107,7 @@
                 android:layout_marginTop="16dp">
 
                 <Button
-                    android:id="@+id/increaseQuantity"
+                    android:id="@+id/decreaseQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
@@ -114,7 +126,7 @@
                     android:layout_marginHorizontal="8dp" />
 
                 <Button
-                    android:id="@+id/decreaseQuantity"
+                    android:id="@+id/increaseQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
